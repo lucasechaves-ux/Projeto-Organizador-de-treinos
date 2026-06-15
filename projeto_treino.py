@@ -82,7 +82,7 @@ def editar_treinos():
     if len(treinos) == 0:
         return
     else:
-      numero = int(input('✏️ Digite o número do treino que deseja editar : '))
+      numero = int(input('✏️ Digite o número do treino que deseja editar ✏️: '))
       indice1 = numero - 1
 
     if numero > len(treinos) or numero <= 0:
