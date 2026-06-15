@@ -67,6 +67,7 @@ def buscar_treinos():
 def atualizar_treinos():
     consultar_treinos()
     if len(treinos) == 0:
+        print("Não há treinos para atualizar.")
         return
     else:
         numero = int(input('Digite o número do treino que você deseja marcar como realizada: '))
