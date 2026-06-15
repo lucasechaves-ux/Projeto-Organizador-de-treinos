@@ -64,10 +64,9 @@ def buscar_treinos():
               f'Status: {status}\n')  # mostra as sessões cadastradas de forma visual e organizada
         numero += 1  # lista as sessões 1,2,3,4....
 
-def atualizar_treinos():
+def marcar_treino_como_realizado():
     consultar_treinos()
     if len(treinos) == 0:
-        print("Não há treinos para atualizar.")
         return
     else:
         numero = int(input('Digite o número do treino que você deseja marcar como realizada: '))
@@ -77,6 +76,28 @@ def atualizar_treinos():
             print('✅ Treino marcado como Realizado! ✅\n')
         else:
             print('⚠️ Número inválido. ⚠️\n')
+
+def editar_treinos():
+    consultar_treinos()
+    if len(treinos) == 0:
+        return
+    else:
+      numero = int(input('✏️ Digite o número do treino que deseja editar : '))
+      indice1 = numero - 1
+
+    if numero > len(treinos) or numero <= 0:
+        print('⚠️ Número inválido. ⚠️\n')
+        return
+
+    print('\n🔄 Digite os novos dados do treino 🔄\n')
+
+    treinos[indice1]['nome'] = input('😁 Novo nome do treino 😁: ')
+    treinos[indice1]['exercício'] = input('🏋️ Novo exercício 🏋️: ')
+    treinos[indice1]['series'] = int(input('🔢 Novo número de séries 🔢: '))
+    treinos[indice1]['repetições'] = int(input('🔂 Novo número de repetições 🔂: '))
+    treinos[indice1]['dia'] = input('🗓️ Novo dia da semana 🗓️: ')
+
+    print('✅ Treino editado com sucesso! ✅\n')
 
 def remover_treinos():
     consultar_treinos()
@@ -97,8 +118,9 @@ def exibir_menu():
         print('2. 🗒️ Consultar treinos 🗒️')
         print('3. 🔍 Buscar por treino ou dia 🔍')
         print('4. ✅ Marcar treino como realizado ✅')
-        print('5. ❌ Remover um treino ❌')
-        print('6. Sair')
+        print('5. 🔂 Editar seus treinos 🔂')
+        print('6. ❌ Remover um treino ❌')
+        print('7. Sair')
         escolha = str(input('Escolha uma opção: '))
         if escolha == '1':
             cadastrar_treino()
@@ -107,10 +129,12 @@ def exibir_menu():
         elif escolha == '3':
             buscar_treinos()
         elif escolha == '4':
-            atualizar_treinos()
+            marcar_treino_como_realizado()
         elif escolha == '5':
-            remover_treinos()
+            editar_treinos()
         elif escolha == '6':
+            remover_treinos()
+        elif escolha == '7':
             print('👋 Saindo do Sistema. Até a próxima!👋')
             break
         else: # se caso o usuario digitar algo alem do 1,2,3,4,5.
