@@ -69,7 +69,7 @@ def marcar_treino_como_realizado():
     if len(treinos) == 0:
         return
     else:
-        numero = int(input('Digite o número do treino que você deseja marcar como realizada: '))
+        numero = int(input('✔️ Digite o número do treino que você deseja marcar como realizado ✔️:'))
         indice = numero - 1
         if numero <= len(treinos):
             treinos[indice]['realizado'] = True
